@@ -14,6 +14,86 @@
   outline: none;
 }
 
+/* ─── DESIGN IMPROVEMENTS ─────────────────────────────────────────────────── */
+
+/* Section labels — orange, spaced, uppercase */
+.paragraph-50 {
+  font-size: 11px !important;
+  letter-spacing: 3px !important;
+  color: #fa872f !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+
+/* Section headings — larger, bold, white */
+.paragraph-49 {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+  margin-top: 12px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Body text — softer grey, more readable line-height */
+.paragraph-52 {
+  color: #bdbdbd !important;
+  line-height: 1.85 !important;
+}
+
+/* Section panels — subtle background grouping instead of all dividers */
+.big-title---insight,
+.subtitle,
+.subtitle-copy {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border-radius: 16px !important;
+  padding: 40px 48px !important;
+  margin-bottom: 16px !important;
+}
+
+/* "On this page" nav links — more visible default state */
+.paragraph-30 a {
+  color: #7a7a7a !important;
+  transition: color 0.2s !important;
+}
+.paragraph-30 a:hover {
+  color: #ccc !important;
+}
+
+/* Homepage hero credential line — small caps style */
+.text-span-106 {
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+}
+
+/* Project cards — hover lift */
+.link-block-2 {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  display: block !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+.link-block-2:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Tags — slightly more compact */
+.tag, .tag-green {
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Reduce divider visual weight */
+.divider .image-17 {
+  opacity: 0.3 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+
 /* Typewriter */
 .typer-text {
   color: #fa872f;
