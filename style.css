@@ -46,15 +46,7 @@ html {
   line-height: 1.85 !important;
 }
 
-/* Section panels — subtle background grouping instead of all dividers */
-.big-title---insight,
-.subtitle,
-.subtitle-copy {
-  background: rgba(255, 255, 255, 0.025) !important;
-  border-radius: 16px !important;
-  padding: 40px 48px !important;
-  margin-bottom: 16px !important;
-}
+/* Section panels — removed, caused weird grey tint */
 
 /* "On this page" nav links — more visible default state */
 .paragraph-30 a:not(.nav-link-active) {
@@ -74,7 +66,7 @@ html {
   font-weight: 500 !important;
 }
 
-/* All content images — force full width, no auto right margin gap */
+/* All content images — fill container without upscaling (prevents blur) */
 .image-16,
 .image-16-copy,
 .image-32,
@@ -82,7 +74,16 @@ html {
 .image-67-copy,
 .image-67-copy-copy {
   width: 100% !important;
+  max-width: 100% !important;
   margin-right: 0 !important;
+  display: block !important;
+}
+
+/* Reduce right dead-space on wide screens */
+@media screen and (min-width: 1200px) {
+  .portfolio {
+    margin-right: 40px !important;
+  }
 }
 
 /* Project cards — hover lift */
