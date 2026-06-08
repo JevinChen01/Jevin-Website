@@ -1,7 +1,12 @@
 /* Overrides & additions on top of webflow.css */
 
-/* Scroll spy active link */
-.nav-link-active {
+/* Smooth scroll for sidebar anchor clicks */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll spy active link — must beat .paragraph-30 a specificity */
+.paragraph-30 a.nav-link-active {
   color: #fa872f !important;
 }
 
@@ -52,11 +57,11 @@
 }
 
 /* "On this page" nav links — more visible default state */
-.paragraph-30 a {
+.paragraph-30 a:not(.nav-link-active) {
   color: #7a7a7a !important;
   transition: color 0.2s !important;
 }
-.paragraph-30 a:hover {
+.paragraph-30 a:not(.nav-link-active):hover {
   color: #ccc !important;
 }
 
