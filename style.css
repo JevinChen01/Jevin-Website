@@ -65,12 +65,17 @@
   font-size: 13px !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
-  color: #888 !important;
+  color: #c8c8c8 !important;
   font-weight: 500 !important;
 }
 
-/* Project card image — force full width, no auto right margin gap */
-.image-16 {
+/* All content images — force full width, no auto right margin gap */
+.image-16,
+.image-16-copy,
+.image-32,
+.image-67,
+.image-67-copy,
+.image-67-copy-copy {
   width: 100% !important;
   margin-right: 0 !important;
 }
