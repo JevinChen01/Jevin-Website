@@ -16,12 +16,12 @@
 
 /* ─── DESIGN IMPROVEMENTS ─────────────────────────────────────────────────── */
 
-/* Section labels — orange, spaced, uppercase */
+/* Section labels — spaced, uppercase, white */
 .paragraph-50 {
   font-size: 11px !important;
   letter-spacing: 3px !important;
-  color: #fa872f !important;
-  font-weight: 700 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
 }
 
@@ -62,11 +62,17 @@
 
 /* Homepage hero credential line — small caps style */
 .text-span-106 {
-  font-size: 12px !important;
+  font-size: 13px !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
-  color: #666 !important;
+  color: #888 !important;
   font-weight: 500 !important;
+}
+
+/* Project card image — force full width, no auto right margin gap */
+.image-16 {
+  width: 100% !important;
+  margin-right: 0 !important;
 }
 
 /* Project cards — hover lift */
@@ -81,10 +87,9 @@
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55) !important;
 }
 
-/* Tags — slightly more compact */
+/* Tags — keep original legibility */
 .tag, .tag-green {
-  font-size: 11px !important;
-  letter-spacing: 0.5px !important;
+  font-size: 13px !important;
 }
 
 /* Reduce divider visual weight */
