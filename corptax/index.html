@@ -15,6 +15,47 @@
 </head>
 <body class="body-2">
 
+  <!-- PASSCODE LOCK (client-side gate, mirrors Webflow's protected-page screen) -->
+  <div id="corptax-lock" class="utility-page-wrap" style="position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background-color:#000;">
+    <div class="utility-page-content w-form" style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:440px;padding:24px;">
+      <form id="corptax-lock-form" class="utility-page-form" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+        <img src="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png" alt="" sizes="(max-width: 479px) 100vw, 260px" srcset="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-500.png 500w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-800.png 800w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-1080.png 1080w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-1600.png 1600w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-2000.png 2000w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png 2048w" class="image-64" style="max-width:160px;height:auto;"/>
+        <h2 class="heading-2">Protected Page</h2>
+        <label for="corptax-pass" class="field-label">Please use the password on my resume. Thank you!</label>
+        <input class="text-field w-input" autofocus="true" maxlength="256" name="pass" placeholder="Enter your password" type="password" id="corptax-pass"/>
+        <input type="submit" class="submit-button w-button" value="Submit"/>
+        <div id="corptax-lock-fail" class="w-form-fail" style="display:none;"><div>Incorrect password. Please try again.</div></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var KEY = 'corptax_unlocked', PASS = 'Portfolio';
+      var lock = document.getElementById('corptax-lock');
+      function unlock() {
+        lock.style.display = 'none';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+      if (sessionStorage.getItem(KEY) === '1') { unlock(); return; }
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      var form = document.getElementById('corptax-lock-form');
+      var fail = document.getElementById('corptax-lock-fail');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (document.getElementById('corptax-pass').value === PASS) {
+          try { sessionStorage.setItem(KEY, '1'); } catch (err) {}
+          unlock();
+        } else {
+          fail.style.display = 'block';
+          document.getElementById('corptax-pass').value = '';
+          document.getElementById('corptax-pass').focus();
+        }
+      });
+    })();
+  </script>
+
   <div class="progress-bar"><div class="timeline" id="progress-timeline"></div></div>
 
   <div data-animation="over-left" class="navbar w-nav" data-easing2="ease-out" data-easing="ease" data-collapse="all" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
