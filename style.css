@@ -28,9 +28,12 @@
   -webkit-backdrop-filter: blur(8px);
 }
 #corptax-lock .lock-icon {
+  display: block;
   width: 84px;
   height: auto;
-  margin-bottom: 18px;
+  padding: 0 !important;
+  margin: 0 auto 18px;
+  box-sizing: border-box;
   filter: drop-shadow(0 8px 18px rgba(250, 135, 47, 0.25));
 }
 #corptax-lock .lock-title {
@@ -216,32 +219,34 @@ html {
 
 @keyframes blink { 50% { opacity: 0; } }
 
-/* Pin social/email section to bottom of sidebar on all case study pages */
+/* Pin social/email section to bottom of sidebar on case study pages,
+   matching the landing-page layout: icons side-by-side flush left (x:0 / x:74),
+   email below at x:30. */
 
-/* Instagram icon — absolute bottom of fixed navbar */
+/* Instagram icon — flush left, like landing */
 .body-2 .navbar .link-block-5,
 .body-2 .navbar .link-block-7 {
   position: absolute !important;
   bottom: 80px;
-  left: 30px;
+  left: 0;
   margin-top: 0 !important;
 }
 
-/* LinkedIn icon — sits right next to Instagram */
+/* LinkedIn icon — 74px gap from Instagram, like landing (no overlap) */
 .body-2 .navbar .link-block-5 + .w-inline-block,
 .body-2 .navbar .link-block-7 + .w-inline-block {
   position: absolute !important;
   bottom: 80px;
-  left: 80px;
+  left: 74px;
   margin-top: 0 !important;
 }
 
-/* Email line — pinned to very bottom */
+/* Email line — its own 30px margin-left lands it at x:30, like landing */
 .body-2 .navbar .paragraph-4 {
   position: absolute !important;
   bottom: 24px;
   left: 0;
-  right: 0;
+  right: auto;
   margin-top: 0 !important;
 }
 
