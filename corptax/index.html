@@ -16,17 +16,15 @@
 <body class="body-2">
 
   <!-- PASSCODE LOCK (client-side gate, mirrors Webflow's protected-page screen) -->
-  <div id="corptax-lock" class="utility-page-wrap" style="position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background-color:#000;">
-    <div class="utility-page-content w-form" style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:440px;padding:24px;">
-      <form id="corptax-lock-form" class="utility-page-form" style="display:flex;flex-direction:column;align-items:center;width:100%;">
-        <img src="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png" alt="" sizes="(max-width: 479px) 100vw, 260px" srcset="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-500.png 500w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-800.png 800w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-1080.png 1080w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-1600.png 1600w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-2000.png 2000w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png 2048w" class="image-64" style="max-width:160px;height:auto;"/>
-        <h2 class="heading-2">Protected Page</h2>
-        <label for="corptax-pass" class="field-label">Please use the password on my resume. Thank you!</label>
-        <input class="text-field w-input" autofocus="true" maxlength="256" name="pass" placeholder="Enter your password" type="password" id="corptax-pass"/>
-        <input type="submit" class="submit-button w-button" value="Submit"/>
-        <div id="corptax-lock-fail" class="w-form-fail" style="display:none;"><div>Incorrect password. Please try again.</div></div>
-      </form>
-    </div>
+  <div id="corptax-lock">
+    <form id="corptax-lock-form" class="lock-card w-form">
+      <img src="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png" alt="" sizes="120px" srcset="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-500.png 500w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-800.png 800w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock-p-1080.png 1080w, https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/64c69e1062db2b29aec244ed_fxemoji_lock.png 2048w" class="lock-icon"/>
+      <h2 class="lock-title">Protected Page</h2>
+      <p class="lock-hint">This case study is under NDA.<br/>Enter the passcode to continue — it's on my resume.</p>
+      <input class="lock-input" autofocus="true" maxlength="256" name="pass" placeholder="Enter passcode" type="password" id="corptax-pass" autocomplete="off"/>
+      <button type="submit" class="lock-submit">Unlock</button>
+      <div id="corptax-lock-fail" class="lock-fail" style="display:none;">Incorrect passcode. Please try again.</div>
+    </form>
   </div>
   <script>
     (function () {
