@@ -95,6 +95,14 @@
   border: 1px solid rgba(255, 90, 90, 0.32);
   border-radius: 9px;
 }
+#corptax-lock .lock-back {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+#corptax-lock .lock-back:hover { color: #fa872f; }
 
 /* Smooth scroll for sidebar anchor clicks */
 html {

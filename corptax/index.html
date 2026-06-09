@@ -24,6 +24,7 @@
       <input class="lock-input" autofocus="true" maxlength="256" name="pass" placeholder="Enter passcode" type="password" id="corptax-pass" autocomplete="off"/>
       <button type="submit" class="lock-submit">Unlock</button>
       <div id="corptax-lock-fail" class="lock-fail" style="display:none;">Incorrect passcode. Please try again.</div>
+      <a href="../" id="corptax-lock-back" class="lock-back">← Go back</a>
     </form>
   </div>
   <script>
@@ -51,6 +52,17 @@
           document.getElementById('corptax-pass').focus();
         }
       });
+      // "Go back" — return to the previous page if we came from one, else home
+      var back = document.getElementById('corptax-lock-back');
+      if (back) {
+        back.addEventListener('click', function (e) {
+          if (document.referrer && document.referrer !== location.href) {
+            e.preventDefault();
+            history.back();
+          }
+          // otherwise fall through to the href="../" (home)
+        });
+      }
     })();
   </script>
 
