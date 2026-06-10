@@ -13,10 +13,12 @@
   <link href="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/62b72069302e9aea03489800_%E6%9C%AA%E6%A0%87%E9%A2%98-1.png" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="../style.css"/>
   <style>
+    /* ── Layout ─────────────────────────────────────────── */
     .about-wrap {
       margin-left: 240px;
       margin-right: 60px;
       padding-top: 80px;
+      padding-bottom: 60px;
       max-width: 900px;
     }
     .about-grid {
@@ -24,12 +26,21 @@
       gap: 60px;
       align-items: flex-start;
     }
-    .about-photo {
+
+    /* ── Photo ───────────────────────────────────────────── */
+    .about-photo-wrap {
       width: 260px;
       min-width: 260px;
+      flex-shrink: 0;
+    }
+    .about-photo {
+      width: 100%;
       border-radius: 16px;
       object-fit: cover;
+      display: block;
     }
+
+    /* ── Text ────────────────────────────────────────────── */
     .about-text h1 {
       font-family: Montserrat, sans-serif;
       font-size: 48px;
@@ -49,31 +60,130 @@
       color: #fa872f;
       text-decoration: none;
     }
-    .about-tag {
-      display: inline-block;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      color: #ccc;
-      font-size: 13px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin: 4px 4px 4px 0;
-      font-family: 'Open Sans', sans-serif;
-    }
     .about-section-label {
       font-family: Montserrat, sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: #fa872f;
       text-transform: uppercase;
       margin-bottom: 12px;
       margin-top: 36px;
     }
+
+    /* ── Tags ────────────────────────────────────────────── */
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+    .about-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      color: #ccc;
+      font-size: 13px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-family: 'Open Sans', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .about-tag:hover { border-color: #fa872f; color: #fff; }
+    .about-tag .tag-icon { font-size: 14px; line-height: 1; }
+
+    /* ── "Now" card ──────────────────────────────────────── */
+    .about-now {
+      margin-top: 36px;
+      background: #111;
+      border: 1px solid #232323;
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .about-now .now-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fa872f;
+      margin-bottom: 12px;
+    }
+    .about-now .now-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .about-now .now-item:last-child { margin-bottom: 0; }
+    .about-now .now-item .ni { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .about-now .now-item strong { color: #fff; font-weight: 600; }
+
+    /* ── Fun facts ───────────────────────────────────────── */
+    .about-facts {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .about-fact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.5;
+    }
+    .about-fact .fi { font-size: 16px; flex-shrink: 0; }
+    .about-fact strong { color: #ccc; font-weight: 500; }
+
+    /* ── Connect links ───────────────────────────────────── */
+    .about-connect {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .about-connect a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #888;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .about-connect a:hover { color: #fa872f; }
+    .about-connect .ci { font-size: 16px; }
+
+    /* ── Entrance animations ─────────────────────────────── */
+    @keyframes aboutFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .about-photo-wrap,
+      .about-text > * {
+        opacity: 0;
+        animation: aboutFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .about-photo-wrap                    { animation-delay: 0.05s; }
+      .about-text h1                       { animation-delay: 0.12s; }
+      .about-text > p:first-of-type        { animation-delay: 0.20s; }
+      .about-text > p:nth-of-type(2)       { animation-delay: 0.26s; }
+      /* remaining children stagger via JS */
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 991px) {
+      .about-wrap { margin-left: 180px; }
+    }
     @media (max-width: 767px) {
       .about-wrap { margin-left: 20px; margin-right: 20px; padding-top: 80px; }
       .about-grid { flex-direction: column; gap: 32px; }
-      .about-photo { width: 100%; min-width: unset; }
+      .about-photo-wrap { width: 100%; min-width: unset; }
     }
   </style>
 </head>
@@ -98,31 +208,62 @@
 
   <div class="about-wrap">
     <div class="about-grid">
-      <img
-        src="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/62ba5927fda03cf0d7d958ef_IMG_2834%20Large.jpeg"
-        loading="lazy"
-        alt="Jevin Chen"
-        class="about-photo"
-      />
+
+      <!-- Photo with orange glow treatment -->
+      <div class="about-photo-wrap">
+        <img
+          src="https://cdn.prod.website-files.com/62a3a593b5da70aec51808b2/62ba5927fda03cf0d7d958ef_IMG_2834%20Large.jpeg"
+          loading="lazy"
+          alt="Jevin Chen"
+          class="about-photo"
+        />
+      </div>
+
+      <!-- Text column -->
       <div class="about-text">
         <h1>Hello, I'm Jevin!</h1>
+
         <p>Product designer <strong style="color:#fff;">based in New York</strong> with an architecture background. I believe design is always about imagining experiences that would inspire the designed target users — and the greatest satisfaction comes when your design intention is appreciated by whoever comes across it.</p>
         <p>See my work rather than my words to gain a better understanding. Feel free to drop me a message or email me at <a href="mailto:jevinchen01@gmail.com">jevinchen01@gmail.com</a>.</p>
 
-        <p class="about-section-label">Background</p>
-        <span class="about-tag">Product Design</span>
-        <span class="about-tag">UX / UI</span>
-        <span class="about-tag">Visual Design</span>
-        <span class="about-tag">Design Management</span>
-        <span class="about-tag">Architecture</span>
-        <span class="about-tag">SCAD Graduate</span>
+        <!-- "What I'm doing now" card -->
+        <div class="about-now">
+          <div class="now-label">Now</div>
+          <div class="now-item"><span class="ni">🎨</span><span>Designing product at <strong>NYC</strong> — shipping features users actually love</span></div>
+          <div class="now-item"><span class="ni">🤖</span><span>Exploring how <strong>AI</strong> can make design workflows faster without losing the human touch</span></div>
+          <div class="now-item"><span class="ni">🏛️</span><span>Building <strong><a href="https://prosepro.io/" target="_blank" rel="noopener noreferrer" style="color:#fa872f;text-decoration:none;">ProsePro</a></strong> — helping real people navigate small claims court</span></div>
+        </div>
 
+        <!-- Background tags with icons -->
+        <p class="about-section-label">Background</p>
+        <div class="about-tags">
+          <span class="about-tag"><span class="tag-icon">✏️</span>Product Design</span>
+          <span class="about-tag"><span class="tag-icon">🔍</span>UX / UI</span>
+          <span class="about-tag"><span class="tag-icon">🎨</span>Visual Design</span>
+          <span class="about-tag"><span class="tag-icon">📐</span>Architecture</span>
+          <span class="about-tag"><span class="tag-icon">🎓</span>SCAD Graduate</span>
+          <span class="about-tag"><span class="tag-icon">🗽</span>New York</span>
+        </div>
+
+        <!-- Tools -->
+        <p class="about-section-label">Tools</p>
+        <div class="about-tags">
+          <span class="about-tag"><span class="tag-icon">🖌️</span>Figma</span>
+          <span class="about-tag"><span class="tag-icon">🌐</span>Webflow</span>
+          <span class="about-tag"><span class="tag-icon">📋</span>Notion</span>
+          <span class="about-tag"><span class="tag-icon">🧠</span>Framer</span>
+          <span class="about-tag"><span class="tag-icon">💻</span>HTML / CSS</span>
+        </div>
+
+        <!-- Connect -->
         <p class="about-section-label">Connect</p>
-        <p>
-          <a href="https://www.instagram.com/jevin_chen/" target="_blank">Instagram</a> &nbsp;·&nbsp;
-          <a href="https://www.linkedin.com/in/jiyuan-jevin-chen-6b4356196/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-          <a href="mailto:jevinchen01@gmail.com">Email</a>
-        </p>
+        <div class="about-connect">
+          <a href="https://www.instagram.com/jevin_chen/" target="_blank"><span class="ci">📸</span> Instagram</a>
+          <a href="https://www.linkedin.com/in/jiyuan-jevin-chen-6b4356196/" target="_blank"><span class="ci">💼</span> LinkedIn</a>
+          <a href="mailto:jevinchen01@gmail.com"><span class="ci">✉️</span> Email</a>
+          <a href="https://drive.google.com/file/d/18iITVQgO78DAtzI5yscLJJYcgEEWDB26/view?usp=sharing" target="_blank"><span class="ci">📄</span> Resume</a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -132,5 +273,17 @@
   </section>
 
   <script src="../script.js"></script>
+  <script>
+    // Stagger remaining about-text children beyond the first two paragraphs
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const children = document.querySelectorAll('.about-text > *');
+      let delay = 0.20;
+      children.forEach((el, i) => {
+        if (i < 3) return; // h1 + first two p already set in CSS
+        delay += 0.07;
+        el.style.animationDelay = delay + 's';
+      });
+    }
+  </script>
 </body>
 </html>
