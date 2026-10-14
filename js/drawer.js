@@ -15,9 +15,9 @@
 
   const projects = [
     { slug: 'corptax',       label: 'Corptax',         url: 'work/corptax/index.html'       },
-    { slug: 'citifix',       label: 'Citifix',          url: 'work/citifix/index.html'       },
-    { slug: 'bridgify',      label: 'Bridgify',         url: 'work/bridgify/index.html'      },
+    { slug: 'bridgify',      label: 'Bridge Legal',     url: 'work/bridgify/index.html'      },
     { slug: 'bridgifymobile',label: 'Bridgify Mobile',  url: 'work/bridgifymobile/index.html'},
+    { slug: 'citifix',       label: 'Citifix',          url: 'work/citifix/index.html'       },
   ];
 
   let currentIdx  = -1;
@@ -55,11 +55,11 @@
       });
   }
 
-  function open(url) {
-    // Match longest slug first to avoid 'bridgify' eating 'bridgifymobile'
-    const sorted = [...projects].sort((a, b) => b.slug.length - a.slug.length);
-    const match  = sorted.find(p => url.includes(p.slug));
-    const idx    = match ? projects.indexOf(match) : 0;
+  const LOCKED = ['corptax'];
+  const PASSCODE = 'Portfolio';
+  const unlocked = new Set();
+
+  function openDrawer(idx) {
     currentIdx = idx;
     updateNav();
     load(projects[currentIdx].url);
@@ -67,6 +67,68 @@
     drawer.classList.add('open');
     document.body.classList.add('cs-overlay-open');
     document.body.style.overflow = 'hidden';
+  }
+
+  function open(url) {
+    // Match longest slug first to avoid 'bridgify' eating 'bridgifymobile'
+    const sorted = [...projects].sort((a, b) => b.slug.length - a.slug.length);
+    const match  = sorted.find(p => url.includes(p.slug));
+    const idx    = match ? projects.indexOf(match) : 0;
+    const slug   = match ? match.slug : '';
+
+    if (LOCKED.includes(slug) && !unlocked.has(slug)) {
+      showPasscode(slug, () => openDrawer(idx));
+    } else {
+      openDrawer(idx);
+    }
+  }
+
+  /* ── Passcode gate ── */
+  function showPasscode(slug, onSuccess) {
+    const gate = document.getElementById('passcode-gate');
+    const input = document.getElementById('passcode-input');
+    const error = document.getElementById('passcode-error');
+    if (!gate || !input) return;
+
+    input.value = '';
+    error.textContent = '';
+    error.classList.remove('visible');
+    gate.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input.focus(), 80);
+
+    function attempt() {
+      if (input.value === PASSCODE) {
+        unlocked.add(slug);
+        gate.classList.remove('open');
+        document.body.style.overflow = '';
+        cleanup();
+        onSuccess();
+      } else {
+        input.value = '';
+        input.classList.add('shake');
+        error.textContent = 'Incorrect passcode';
+        error.classList.add('visible');
+        setTimeout(() => input.classList.remove('shake'), 400);
+      }
+    }
+
+    function handleKey(e) { if (e.key === 'Enter') attempt(); if (e.key === 'Escape') cancel(); }
+    function cancel() {
+      gate.classList.remove('open');
+      document.body.style.overflow = '';
+      cleanup();
+    }
+
+    function cleanup() {
+      input.removeEventListener('keydown', handleKey);
+      document.getElementById('passcode-submit').removeEventListener('click', attempt);
+      document.getElementById('passcode-cancel').removeEventListener('click', cancel);
+    }
+
+    input.addEventListener('keydown', handleKey);
+    document.getElementById('passcode-submit').addEventListener('click', attempt);
+    document.getElementById('passcode-cancel').addEventListener('click', cancel);
   }
 
   function close() {
