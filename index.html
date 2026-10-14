@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jevin Chen — Product Designer</title>
   <meta name="description" content="Product designer solving complex problems through human-centric design. Based in New York."/>
-  <link rel="stylesheet" href="css/global.css?v=28"/>
-  <link rel="stylesheet" href="css/home.css?v=40"/>
-  <link rel="stylesheet" href="css/case-study.css?v=30"/>
+  <link rel="stylesheet" href="css/global.css?v=30"/>
+  <link rel="stylesheet" href="css/home.css?v=57"/>
+  <link rel="stylesheet" href="css/case-study.css?v=37"/>
 </head>
 <body>
+
+  <!-- Passcode gate -->
+  <div id="passcode-gate" aria-modal="true" role="dialog" aria-label="Enter passcode">
+    <div class="passcode-card">
+      <div class="passcode-lock">🔒</div>
+      <p class="passcode-title">Password protected</p>
+      <p class="passcode-sub">This case study is under NDA. Enter the passcode to continue.</p>
+      <input id="passcode-input" class="passcode-input" type="password" placeholder="Passcode" autocomplete="off" spellcheck="false"/>
+      <p id="passcode-error" class="passcode-error"></p>
+      <div class="passcode-actions">
+        <button id="passcode-cancel" class="passcode-btn passcode-btn-ghost">Cancel</button>
+        <button id="passcode-submit" class="passcode-btn passcode-btn-primary">Unlock</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Custom cursor -->
   <div id="cs-cursor">
@@ -30,7 +45,7 @@
             <img class="project-img" src="assets/EntityGroup_QueryBased_Create-to-Detail_white.gif" alt="Corptax" style="object-fit: contain; border-radius: 8px;"/>
           </div>
           <div class="project-body">
-            <p class="project-title">Corptax</p>
+            <p class="project-title">CSC · Corptax</p>
             <p class="project-sub">Tax obligation management · B2B SaaS</p>
           </div>
         </a>
@@ -56,8 +71,8 @@
         <div class="center-top">
           <a href="about/" class="widget clickable w-about" id="about-card">
             <p class="about-label">About me</p>
-            <div class="about-photo-circle">
-              <img src="assets/jevin-headshot.jpg" alt="Jevin Chen"/>
+            <div class="about-photo-cover">
+              <img src="assets/jevin-architecture.jpg" alt="Jevin Chen"/>
             </div>
           </a>
 
@@ -85,18 +100,15 @@
 
         <!-- Hero slogan -->
         <div class="w-hero">
-          <h1>Hi, I'm Jevin.<br>I design <em>things</em><br>that matter.</h1>
+          <h1>Hi, I'm Jevin.<br>I design <em id="cycling-word">things</em><br>that matter.</h1>
           <div class="hero-meta">
             <p>Currently at</p>
             <a href="https://www.cscglobal.com" target="_blank" rel="noopener" class="pill pill-company">
               <img src="https://www.google.com/s2/favicons?domain=cscglobal.com&sz=32" alt=""/>CSC
             </a>
-            <a href="https://www.bridgelegal.com" target="_blank" rel="noopener" class="pill pill-company pill-retired">
-              <img src="https://www.google.com/s2/favicons?domain=bridgelegal.com&sz=32" alt=""/><span class="pill-strikethrough">Bridge Legal</span>
-            </a>
-            <span class="pill pill-company pill-retired">
+            <a href="https://www.scad.edu" target="_blank" rel="noopener" class="pill pill-company">
               <img src="https://www.google.com/s2/favicons?domain=scad.edu&sz=32" alt="SCAD"/>SCAD grad
-            </span>
+            </a>
           </div>
           <div class="hero-icons">
             <a class="hero-icon-btn" href="mailto:jevinchen01@gmail.com" title="jevinchen01@gmail.com" aria-label="Email" id="lottie-email-btn">
@@ -113,11 +125,11 @@
           <div id="yoe-ruler-wrap" class="yoe-ruler-wrap"></div>
           <div class="yoe-footer">
             <div>
-              <p class="yoe-company" id="career-company">CSC</p>
+<p class="yoe-current"><span class="live-dot"></span>Current · CSC</p>
               <p class="yoe-title" id="career-title">Product Designer</p>
             </div>
             <div class="yoe-number">
-              <span class="num" id="career-yrs">6.1</span><span class="unit"> yr</span><br>
+              <span class="num" id="career-yrs">6</span><span class="unit"> yr</span><br>
               <span class="unit">2026</span>
             </div>
           </div>
@@ -142,16 +154,6 @@
       <!-- ── Right column ── -->
       <div class="col-right">
 
-        <!-- Appearance toggle -->
-        <div class="widget w-darkmode">
-          <p class="darkmode-label">Appearance</p>
-          <div class="glass-toggle" id="glass-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
-            <div class="glass-toggle-pill" id="glass-toggle-pill"></div>
-            <span class="glass-toggle-icon glass-toggle-light">☀️</span>
-            <span class="glass-toggle-icon glass-toggle-dark">🌙</span>
-          </div>
-        </div>
-
         <!-- Bridgify -->
         <a href="work/bridgify/" data-cs="work/bridgify/index.html" class="widget clickable w-project">
           <span class="status-badge">Case Study</span>
@@ -159,8 +161,8 @@
             <img src="assets/bridgify-cover.webp" alt="Bridgify" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; transition: transform 0.5s ease;"/>
           </div>
           <div class="project-body">
-            <p class="project-title">Bridgify</p>
-            <p class="project-sub">AI language bridge · 0 → 1</p>
+            <p class="project-title">Bridge Legal</p>
+            <p class="project-sub">Litigation funding CRM · B2B SaaS</p>
           </div>
         </a>
 
@@ -229,72 +231,115 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
 
-    <!-- Left sidebar -->
-    <div class="about-modal-sidebar">
-      <div class="about-modal-photo">
-        <img src="assets/jevin-headshot.jpg" alt="Jevin Chen"/>
-      </div>
-      <div class="about-modal-sidebar-foot">
-        <p class="about-modal-name">Jevin Chen</p>
-        <p class="about-modal-role">Product Designer · New York</p>
+    <!-- Single-column body -->
+    <div class="about-modal-body">
+      <div class="about-modal-header">
+        <div>
+          <p class="about-modal-name">Jevin Chen</p>
+          <p class="about-modal-role">Product Designer · New York</p>
+        </div>
         <div class="about-modal-links">
           <a href="mailto:jevinchen01@gmail.com" class="about-modal-link">Email</a>
           <a href="https://www.linkedin.com/in/jevinchen" target="_blank" rel="noopener" class="about-modal-link">LinkedIn</a>
         </div>
       </div>
-    </div>
-
-    <!-- Right scrollable content -->
-    <div class="about-modal-body">
       <p class="about-modal-bio">Product designer based in New York with an architecture background. I believe design is always about imagining experiences that would inspire the designed target users — and the greatest satisfaction comes when your design intention is appreciated by whoever comes across it.</p>
-      <p class="about-modal-bio" style="margin-top:-10px;">See my work rather than my words to gain a better understanding. Feel free to drop me a message or email me at jevinchen01@gmail.com.</p>
 
       <div class="about-section">
         <p class="about-section-label">NOW</p>
         <div class="about-now-card">
-          <p class="about-now-item">🎨 Designing product at NYC — shipping features users actually love</p>
+          <p class="about-now-item">🎨 Designing product at CSC — shipping features users actually love</p>
           <p class="about-now-item">🤖 Exploring how AI can make design workflows faster without losing the human touch</p>
-          <p class="about-now-item">🏛️ Building ProsePro — helping real people navigate small claims court</p>
+          <p class="about-now-item">🏛️ Building Pro Se Pro — helping real people navigate small claims court</p>
         </div>
       </div>
 
       <div class="about-section">
-        <p class="about-section-label">BACKGROUND</p>
-        <div class="about-tags">
-          <a href="https://www.cscglobal.com" target="_blank" rel="noopener" class="about-tag-company">
-            <img src="https://www.google.com/s2/favicons?domain=cscglobal.com&sz=32" alt="CSC"/>CSC
-          </a>
-          <a href="https://www.bridgelegal.com" target="_blank" rel="noopener" class="about-tag-company">
-            <img src="https://www.google.com/s2/favicons?domain=bridgelegal.com&sz=32" alt="Bridge Legal"/>Bridge Legal
-          </a>
-          <span class="about-tag-scad">
-            <img src="https://www.google.com/s2/favicons?domain=scad.edu&sz=64" alt="SCAD"/>SCAD
-          </span>
-          <span class="about-tag">✏️ Product Design</span>
-          <span class="about-tag">🔍 UX / UI</span>
-          <span class="about-tag">🎨 Visual Design</span>
-          <span class="about-tag">📐 Architecture</span>
-          <span class="about-tag">🗽 New York</span>
+        <p class="about-section-label">EXPERIENCE</p>
+        <div class="about-timeline">
+
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-content">
+              <div class="about-timeline-header">
+                <div>
+                  <p class="about-timeline-role">Product Designer</p>
+                  <p class="about-timeline-company">CSC · New York (Remote)</p>
+                </div>
+                <p class="about-timeline-date">Jan 2025 – Present</p>
+              </div>
+              <p class="about-timeline-desc">Leading end-to-end design for Corptax, a tax obligation management platform serving 130K+ users across Fortune 500 companies. Driving a full UX redesign to modernize adoption and usability.</p>
+            </div>
+          </div>
+
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-content">
+              <div class="about-timeline-header">
+                <div>
+                  <p class="about-timeline-role">Product Designer</p>
+                  <p class="about-timeline-company">Bridge Legal · Chicago</p>
+                </div>
+                <p class="about-timeline-date">Nov 2022 – Dec 2024</p>
+              </div>
+              <p class="about-timeline-desc">Sole designer on Bridgify, a 0→1 litigation funding CRM. Led feature scoping, research, interaction and visual design. Also designed Bridgify Mobile — a cross-platform legal assistant app.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="about-section">
+        <p class="about-section-label">EDUCATION</p>
+        <div class="about-timeline">
+
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-content">
+              <div class="about-timeline-header">
+                <div>
+                  <p class="about-timeline-role">M.A. Design Management</p>
+                  <p class="about-timeline-company">Savannah College of Art and Design</p>
+                </div>
+                <p class="about-timeline-date">2020 – 2022</p>
+              </div>
+              <p class="about-timeline-desc">Focused on design strategy, UX research, and product thinking. Where I fell in love with human-centered design.</p>
+            </div>
+          </div>
+
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-content">
+              <div class="about-timeline-header">
+                <div>
+                  <p class="about-timeline-role">B.Arch. Architecture</p>
+                  <p class="about-timeline-company">Xi'an University of Architecture and Technology</p>
+                </div>
+                <p class="about-timeline-date">2015 – 2020</p>
+              </div>
+              <p class="about-timeline-desc">Five-year professional degree in architecture. Developed a spatial and systems thinking mindset that still shapes how I approach product design.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <div class="about-section">
         <p class="about-section-label">TOOLS</p>
         <div class="about-tags">
-          <span class="about-tag">🖌️ Figma</span>
-          <span class="about-tag">🌐 Webflow</span>
-          <span class="about-tag">📋 Notion</span>
-          <span class="about-tag">🧠 Framer</span>
-          <span class="about-tag">💻 HTML / CSS</span>
+          <span class="about-tag">Figma</span>
+          <span class="about-tag">Framer</span>
+          <span class="about-tag">Webflow</span>
+          <span class="about-tag">Notion</span>
+          <span class="about-tag">HTML / CSS / JS</span>
         </div>
       </div>
 
       <div class="about-section">
         <p class="about-section-label">CONNECT</p>
         <div class="about-tags">
-          <a href="https://www.instagram.com/jevinchen" target="_blank" rel="noopener" class="about-modal-link">📸 Instagram</a>
-          <a href="https://www.linkedin.com/in/jevinchen" target="_blank" rel="noopener" class="about-modal-link">💼 LinkedIn</a>
-          <a href="mailto:jevinchen01@gmail.com" class="about-modal-link">✉️ Email</a>
+          <a href="https://www.linkedin.com/in/jevinchen" target="_blank" rel="noopener" class="about-modal-link">LinkedIn</a>
+          <a href="mailto:jevinchen01@gmail.com" class="about-modal-link">Email</a>
         </div>
       </div>
     </div>
@@ -389,13 +434,12 @@
     (function () {
       const segments = [
         { key: 'SCAD',        label: 'SCAD',        title: 'M.A. Design Management', detail: 'Sep 2020 – Nov 2022 · Savannah, GA', start: 0,    end: 2.16 },
-        { key: 'BridgeLegal', label: 'Bridge Legal',title: 'Product Designer',        detail: 'Nov 2022 – Dec 2024 · New York',     start: 2.16, end: 4.25 },
-        { key: 'CSC',         label: 'CSC',         title: 'Product Designer',        detail: 'Jan 2025 – Present · New York',      start: 4.33, end: 6.08 },
+        { key: 'BridgeLegal', label: 'Bridge Legal',title: 'Product Designer',        detail: 'Nov 2022 – Dec 2024 · Chicago',     start: 2.16, end: 4.25 },
+        { key: 'CSC',         label: 'CSC',         title: 'Product Designer',        detail: 'Jan 2025 – Present · Remote',        start: 4.33, end: 6.08 },
       ];
 
-      const totalYrs = 6.08;
+      const totalYrs = 6;
       const maxYr    = 10;
-      const compEl   = document.getElementById('career-company');
       const titlEl   = document.getElementById('career-title');
       const yrsEl    = document.getElementById('career-yrs');
       const wrap     = document.getElementById('yoe-ruler-wrap');
@@ -515,7 +559,171 @@
         });
       }
 
-      draw();
+      // Animate ruler: pointer slides from 0 to totalYrs, number counts up
+      function animateRuler() {
+        const W = 320, padL = 16, padR = 16, baseY = 48;
+        const xAt = yr => padL + (yr / maxYr) * (W - padL - padR);
+        const duration = 900;
+        const start = performance.now();
+        const yrsEl = document.getElementById('career-yrs');
+
+        function ease(t) { return 1 - Math.pow(1 - t, 3); }
+
+        function tick(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const e = ease(t);
+          const curYr = totalYrs * e;
+
+          // Redraw ticks with animated fill
+          let ticks = '', yearLabels = '', segLabels = '';
+          for (let i = 0; i <= maxYr * 10; i++) {
+            const yr      = i / 10;
+            const isWhole = i % 10 === 0;
+            const isHalf  = i % 5 === 0 && !isWhole;
+            const h       = isWhole ? 18 : isHalf ? 10 : 5;
+            const x       = xAt(yr).toFixed(2);
+            const filled  = yr <= curYr;
+            const color   = filled ? (isWhole ? ORANGE : ORANGE_LT) : (isWhole ? GREY_DARK : GREY);
+            const sw      = isWhole ? 1.5 : isHalf ? 1 : 0.7;
+            ticks += `<line x1="${x}" y1="${baseY - h}" x2="${x}" y2="${baseY}" stroke="${color}" stroke-width="${sw}" stroke-linecap="round"/>`;
+            if (isWhole && yr > 0) {
+              const lc = filled ? ORANGE : GREY_DARK;
+              const fw = filled ? '600' : '400';
+              yearLabels += `<text x="${x}" y="${baseY - h - 4}" text-anchor="middle" font-size="8.5" font-weight="${fw}" fill="${lc}" font-family="'Plus Jakarta Sans',sans-serif">${yr}</text>`;
+            }
+          }
+          segments.forEach(seg => {
+            const xMid = ((xAt(seg.start) + xAt(seg.end)) / 2).toFixed(1);
+            const filled = seg.start < curYr;
+            const lc = filled ? '#888' : GREY_DARK;
+            segLabels += `<text x="${xMid}" y="11" text-anchor="middle" font-size="7" font-weight="500" fill="${lc}" font-family="'Plus Jakarta Sans',sans-serif" letter-spacing="0.03em">${seg.label.toUpperCase()}</text>`;
+            const x1 = xAt(seg.start).toFixed(2);
+            if (seg.start > 0) segLabels += `<line x1="${x1}" y1="0" x2="${x1}" y2="${baseY}" stroke="${GREY}" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>`;
+          });
+
+          // Pointer
+          const tx  = xAt(curYr).toFixed(2);
+          const tri = `<polygon points="${tx},${baseY + 4} ${(+tx - 4.5).toFixed(1)},${baseY + 11} ${(+tx + 4.5).toFixed(1)},${baseY + 11}" fill="${ORANGE}"/>`;
+
+          const svgEl = wrap.querySelector('svg');
+          if (svgEl) {
+            // Update static elements only (preserve hover zones/overlays appended after)
+            const staticGroup = svgEl.querySelector('.ruler-static');
+            if (staticGroup) staticGroup.innerHTML = segLabels + ticks + yearLabels + tri;
+          }
+
+          // Count-up number
+          if (yrsEl) yrsEl.textContent = Math.round(curYr);
+
+          if (t < 1) requestAnimationFrame(tick);
+          else if (yrsEl) yrsEl.textContent = totalYrs;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // Initial draw — static, pointer starts at 0
+      (function() {
+        const W = 320, H = 80;
+        const padL = 16, padR = 16;
+        const baseY = 48;
+        const xAt = yr => padL + (yr / maxYr) * (W - padL - padR);
+
+        let ticks = '', yearLabels = '', segLabels = '';
+        for (let i = 0; i <= maxYr * 10; i++) {
+          const yr      = i / 10;
+          const isWhole = i % 10 === 0;
+          const isHalf  = i % 5 === 0 && !isWhole;
+          const h       = isWhole ? 18 : isHalf ? 10 : 5;
+          const x       = xAt(yr).toFixed(2);
+          const color   = isWhole ? GREY_DARK : GREY;
+          const sw      = isWhole ? 1.5 : isHalf ? 1 : 0.7;
+          ticks += `<line x1="${x}" y1="${baseY - h}" x2="${x}" y2="${baseY}" stroke="${color}" stroke-width="${sw}" stroke-linecap="round"/>`;
+          if (isWhole && yr > 0) {
+            yearLabels += `<text x="${xAt(yr).toFixed(2)}" y="${baseY - h - 4}" text-anchor="middle" font-size="8.5" font-weight="400" fill="${GREY_DARK}" font-family="'Plus Jakarta Sans',sans-serif">${yr}</text>`;
+          }
+        }
+        segments.forEach(seg => {
+          const xMid = ((xAt(seg.start) + xAt(seg.end)) / 2).toFixed(1);
+          segLabels += `<text x="${xMid}" y="11" text-anchor="middle" font-size="7" font-weight="500" fill="${GREY_DARK}" font-family="'Plus Jakarta Sans',sans-serif" letter-spacing="0.03em">${seg.label.toUpperCase()}</text>`;
+          const x1 = xAt(seg.start).toFixed(2);
+          if (seg.start > 0) segLabels += `<line x1="${x1}" y1="0" x2="${x1}" y2="${baseY}" stroke="${GREY}" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>`;
+        });
+
+        const tx = xAt(0).toFixed(2);
+        const tri = `<polygon points="${tx},${baseY + 4} ${(+tx - 4.5).toFixed(1)},${baseY + 11} ${(+tx + 4.5).toFixed(1)},${baseY + 11}" fill="${GREY_DARK}"/>`;
+
+        wrap.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;"><g class="ruler-static">${segLabels}${ticks}${yearLabels}${tri}</g></svg>`;
+
+        const svgEl = wrap.querySelector('svg');
+        // Hover zones
+        const overlays = segments.map(seg => {
+          const overlay = document.createElementNS('http://www.w3.org/2000/svg','rect');
+          overlay.setAttribute('x', xAt(seg.start).toFixed(2));
+          overlay.setAttribute('y', '0');
+          overlay.setAttribute('width', (xAt(seg.end) - xAt(seg.start)).toFixed(2));
+          overlay.setAttribute('height', baseY + 12);
+          overlay.setAttribute('fill', 'white');
+          overlay.setAttribute('opacity', '0');
+          overlay.style.transition = 'opacity 0.2s';
+          svgEl.appendChild(overlay);
+          return { seg, overlay };
+        });
+
+        let pop = document.getElementById('career-pop');
+        if (!pop) {
+          pop = document.createElement('div');
+          pop.id = 'career-pop';
+          pop.className = 'career-pop';
+          document.body.appendChild(pop);
+        }
+
+        segments.forEach((seg, i) => {
+          const zone = document.createElementNS('http://www.w3.org/2000/svg','rect');
+          zone.setAttribute('x', xAt(seg.start).toFixed(2));
+          zone.setAttribute('y', '0');
+          zone.setAttribute('width', (xAt(seg.end) - xAt(seg.start)).toFixed(2));
+          zone.setAttribute('height', baseY + 12);
+          zone.setAttribute('fill', 'transparent');
+          zone.style.cursor = 'default';
+          zone.addEventListener('mouseenter', () => {
+            overlays.forEach(({ overlay }, j) => overlay.setAttribute('opacity', j === i ? '0' : '0.55'));
+            const dur = seg.end - seg.start;
+            const durStr = dur < 1 ? Math.round(dur * 12) + ' mo' : dur.toFixed(1).replace('.0','') + ' yr';
+            pop.innerHTML = `<strong>${seg.label}</strong><span>${seg.title}</span><span>${seg.detail} · ${durStr}</span>`;
+            pop.classList.add('visible');
+          });
+          zone.addEventListener('mousemove', (e) => {
+            pop.style.left = (e.clientX + 14) + 'px';
+            pop.style.top  = (e.clientY - 10) + 'px';
+          });
+          zone.addEventListener('mouseleave', () => {
+            overlays.forEach(({ overlay }) => overlay.setAttribute('opacity', '0'));
+            pop.classList.remove('visible');
+          });
+          svgEl.appendChild(zone);
+        });
+
+        // Reset display number to 0 until animation
+        const yrsEl = document.getElementById('career-yrs');
+        if (yrsEl) yrsEl.textContent = '0';
+
+        // Observe career widget for scroll-trigger
+        const careerWidget = document.getElementById('career-widget');
+        if (careerWidget) {
+          let animated = false;
+          new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && !animated) {
+              animated = true;
+              // Inline xAt/baseY for animateRuler closure
+              const _padL = 16, _padR = 16, _W = 320, _maxYr = 10, _baseY = 48;
+              const _xAt = yr => _padL + (yr / _maxYr) * (_W - _padL - _padR);
+              animateRuler();
+            }
+          }, { threshold: 0.4 }).observe(careerWidget);
+        }
+      })();
+
+      // draw() no longer called — replaced by above
     })();
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
@@ -548,7 +756,7 @@
       wire('lottie-linkedin-btn', liAnim);
     })();
   </script>
-  <script src="js/drawer.js?v=4"></script>
+  <script src="js/drawer.js?v=5"></script>
   <script>
     // Bento push effect — hover one widget, others repel away
     (function () {
@@ -596,9 +804,9 @@
       const cities = [
         { name: "Xi'an",      lon: 108.9,  lat: 34.3, year:'2001–2020', note: "Grew up here · Studied Architecture at Xi'an Univ. of A&T",  ldx:  22, ldy: -10 },
         { name: 'Savannah',   lon: -81.1,  lat: 32.1, year:'2020–2022', note: 'SCAD · M.A. Design Management · Fell in love with UX',        ldx:  18, ldy:  20 },
-        { name: 'Chicago',    lon: -87.6,  lat: 41.9, year:'2022',      note: 'Vee · Product Design Intern · First US industry experience',   ldx: -20, ldy: -18 },
-        { name: 'Los Angeles',lon: -118.2, lat: 34.1, year:'2023',      note: 'Bridge Legal West Coast stop · Expanded my coast map',         ldx: -22, ldy:  18 },
-        { name: 'New York',   lon: -74.0,  lat: 40.7, year:'2024–now',  note: 'Bridge Legal → CSC · Currently designing here 🗽',             ldx:  20, ldy: -18, active: true },
+        { name: 'Chicago',    lon: -87.6,  lat: 41.9, year:'2022–2024', note: 'Bridge Legal · Product Designer · First industry role',        ldx: -20, ldy: -18 },
+        { name: 'Los Angeles',lon: -118.2, lat: 34.1, year:'2024–2026', note: 'CSC · Product Designer · Remote from the West Coast',          ldx: -22, ldy:  18 },
+        { name: 'New York',   lon: -74.0,  lat: 40.7, year:'2026–now',  note: 'CSC · Currently designing here remotely 🗽',                   ldx:  20, ldy: -18, active: true },
       ];
       const arcs = [
         ["Xi'an",'Savannah'], ['Savannah','Chicago'],
@@ -826,6 +1034,79 @@
         el.addEventListener('mouseenter', () => cur.classList.add('active'));
         el.addEventListener('mouseleave', () => cur.classList.remove('active'));
       });
+    })();
+
+    /* ── Cycling word in slogan ── */
+    (function() {
+      const el = document.getElementById('cycling-word');
+      if (!el) return;
+      const words = [
+        { text: 'things',   color: '#888888' },
+        { text: 'moments',  color: '#e07b39' },
+        { text: 'futures',  color: '#2563eb' },
+        { text: 'stories',  color: '#16a34a' },
+        { text: 'products', color: '#9333ea' },
+      ];
+      let idx = 0;
+      el.style.color = words[0].color;
+
+      function cycle() {
+        idx = (idx + 1) % words.length;
+        el.classList.add('word-exit');
+        setTimeout(() => {
+          el.textContent = words[idx].text;
+          el.style.color = words[idx].color;
+          el.classList.remove('word-exit');
+          el.classList.add('word-enter');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              el.classList.replace('word-enter', 'word-enter-active');
+              setTimeout(() => el.classList.remove('word-enter-active'), 300);
+            });
+          });
+        }, 300);
+      }
+
+      setInterval(cycle, 2400);
+    })();
+
+    /* ── Widget scroll-entrance (fade + slide up) ── */
+    (function() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            // stagger siblings by their column order
+            const delay = el.dataset.entranceDelay || 0;
+            setTimeout(() => el.classList.add('in-view'), delay);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Assign stagger delays and observe all widgets
+      document.querySelectorAll('.bento .widget').forEach((w, i) => {
+        w.dataset.entranceDelay = (i % 3) * 60; // stagger by column position
+        obs.observe(w);
+      });
+    })();
+
+    /* ── Journey globe city stagger on scroll ── */
+    (function() {
+      const journeyWidget = document.querySelector('.w-journey-map');
+      if (!journeyWidget) return;
+      let triggered = false;
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !triggered) {
+          triggered = true;
+          // Stagger-reveal city dots/labels
+          document.querySelectorAll('.city-group').forEach((cg, i) => {
+            cg.style.opacity = '0';
+            cg.style.transition = `opacity 0.4s ease ${i * 120}ms`;
+            requestAnimationFrame(() => { cg.style.opacity = '1'; });
+          });
+        }
+      }, { threshold: 0.3 }).observe(journeyWidget);
     })();
   </script>
 
