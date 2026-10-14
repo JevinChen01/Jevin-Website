@@ -1006,9 +1006,22 @@ a.pill-scad:hover { background: rgba(176,125,0,0.15); }
 }
 
 @media (max-width: 600px) {
-  .bento { grid-template-columns: 1fr; }
-  .col-left, .col-center, .col-right { grid-column: 1; }
-  .center-top { height: 140px; }
-  .w-bridgify { grid-template-columns: 1fr; height: 320px; }
+  .bento {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .col-left, .col-center, .col-right { display: contents; }
   .canvas { padding: var(--space-sm); }
+
+  /* Reorder: hero → case studies in sequence → career → journey → rest */
+  .w-hero                                    { order: 1; }
+  [data-cs="work/corptax/index.html"]        { order: 2; }
+  [data-cs="work/bridgify/index.html"]       { order: 3; }
+  [data-cs="work/bridgifymobile/index.html"] { order: 4; }
+  [data-cs="work/citifix/index.html"]        { order: 5; }
+  .center-top                                { order: 6; }
+  #career-widget                             { order: 7; }
+  .w-journey-map                             { order: 8; }
+  .w-prosepro                                { order: 9; }
 }
